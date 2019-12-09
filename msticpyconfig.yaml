@@ -1,0 +1,56 @@
+
+AzureSentinel:
+  #Workspaces:
+  #  Default:
+  #    WorkspaceId: "d973e3d2-28e6-458e-b2cf-d38876fb1ba4"
+  #    TenantId: "4cdf87a8-f0fc-40bb-9d85-68bcf4ac8e61"
+  #  Workspace2:
+  #    WorkspaceId: "c88dd3c2-d657-4eb3-b913-58d58d811a41"
+  #    TenantId: "4cdf87a8-f0fc-40bb-9d85-68bcf4ac8e61"
+  #  Workspace3:
+  #    WorkspaceId: "17e64332-19c9-472e-afd7-3629f299300c"
+  #    TenantId: "4ea41beb-4546-4fba-890b-55553ce6003a"
+QueryDefinitions:
+  # Uncomment and add paths to folders containing custom query definitions here
+  #Custom:
+  #  - /home/myuser/queries
+TIProviders:
+  OTX:
+    Args:
+      AuthKey: "your-otx-key"
+    Primary: True
+    Provider: "OTX" # Do not edit the Provider strings
+  VirusTotal:
+    Args:
+      AuthKey: "your-vt-key"
+    Primary: True
+    Provider: "VirusTotal"
+  XForce:
+    # You can store items in an environment variable using this syntax
+    Args:
+      ApiID:
+        EnvironmentVar: "XFORCE_ID"
+      AuthKey:
+        EnvironmentVar: "XFORCE_KEY"
+    Primary: True
+    Provider: "XForce"
+  AzureSentinel:
+    Args:
+      # Workspace and tenant where your ThreatIndicator table is
+      # - usually the same as your default workspace
+      WorkspaceID: "c88dd3c2-d657-4eb3-b913-58d58d811a41"
+      TenantID: "4cdf87a8-f0fc-40bb-9d85-68bcf4ac8e61"
+    Primary: True
+    Provider: "AzSTI"
+  OpenPageRank:
+    Args:
+      AuthKey: "4ea41beb-4546-4fba-890b-55553ce6003a"
+    Primary: True
+    Provider: "OPR"
+  TorExitNodes:
+    Primary: True
+    Provider: Tor
+        
+Browshot:
+  Args:
+    AuthKey: "mxztwgmlfjhawsbexnfxjgfpwiocwj"
